@@ -1,0 +1,9 @@
+= Charts / Vaadin / Canvas / ChartJs.org
+
+This is a simple POC for:
+
+* Vaadin 10 with a Polymer external component
+* Drawing a Graph with https://www.chartjs.org/[chartJs]
+
+image:https://github.com/bindstone/vaadin-charts/blob/master/screenshots/Screen_Shot.png[]
+

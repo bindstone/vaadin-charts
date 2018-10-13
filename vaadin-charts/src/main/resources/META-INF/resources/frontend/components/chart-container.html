@@ -1,0 +1,61 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../styles/shared-styles.html">
+<link rel="import" href="../script/Chart.min.js">
+<script src="../script/Chart.min.js"></script>
+<dom-module id="chart-container">
+
+    <!-- HTML Templete -->
+    <template>
+        <div id="canvasDiv" style="position: relative; height:400px; width:400px">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </template>
+
+    <!-- POLYMER WRAPPER for Vaadin -->
+    <script>
+        class ChartContainer extends Polymer.Element {
+            static get is() {
+                return 'chart-container';
+            }
+
+            <!-- Shared with VAADIN properties -->
+            static get properties() {
+
+                return {
+                    id: {
+                        type: String
+                    },
+                    width: {
+                        type: Number
+                    },
+                    height: {
+                        type: Number
+                    },
+                    canvas: {
+                        type: Object
+                    }
+                };
+            }
+
+            <!-- Constructor on Ready -->
+            ready() {
+                super.ready();
+            }
+
+            <!-- Draw Charts Container -->
+            drawChart(data) {
+                console.log(data);
+                if (data) {
+                    //var ctx = $("#myChart");
+                    console.log("DDDDDDD");
+                    var ctx = this.$.myChart.getContext('2d');
+                    console.log(ctx);
+                    var myChart = new Chart(ctx, data);
+                }
+            }
+        }
+
+        <!-- POLYMER definition -->
+        window.customElements.define(ChartContainer.is, ChartContainer);
+    </script>
+</dom-module>
