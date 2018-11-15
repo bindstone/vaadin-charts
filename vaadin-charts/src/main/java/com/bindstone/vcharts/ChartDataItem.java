@@ -1,10 +1,13 @@
 package com.bindstone.vcharts;
 
+import com.bindstone.vcharts.colors.Color;
+import com.bindstone.vcharts.colors.ColorAlpha;
+
 public class ChartDataItem {
     private String label;
     private Integer data;
-    private Rgba backgroundColor;
-    private Rgba borderColor;
+    private ColorAlpha backgroundColor;
+    private ColorAlpha borderColor;
 
     public String getLabel() {
         return label;
@@ -22,19 +25,32 @@ public class ChartDataItem {
         this.data = data;
     }
 
-    public Rgba getBackgroundColor() {
+    public ColorAlpha getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(Rgba backgroundColor) {
+    public void setBackgroundColor(ColorAlpha backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
-    public Rgba getBorderColor() {
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = new ColorAlpha(backgroundColor,1);
+    }
+
+    public ColorAlpha getBorderColor() {
         return borderColor;
     }
 
-    public void setBorderColor(Rgba borderColor) {
+    public void setBorderColor(ColorAlpha borderColor) {
         this.borderColor = borderColor;
+    }
+
+    public void setBorderColor(Color borderColor) {
+        this.borderColor =  new ColorAlpha(borderColor,1);;
+    }
+
+    public void setItemColor(Color color, double alpha) {
+        this.backgroundColor = new ColorAlpha(color, alpha);
+        this.borderColor = new ColorAlpha(color, 1);
     }
 }
